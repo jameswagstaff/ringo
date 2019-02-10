@@ -7,9 +7,6 @@
 #' @param z A Vector of all the lines that make one STAR table
 #'
 #' @return A tibble
-#'
-#' @examples
-#' single_table_to_df()
 single_table_to_df <- function(z){
   if (stringr::str_detect(z[[2]], pattern = "^loop_")) {
     if (length(z) < 3) {return(NA)} # Some lists are of 0 length...
@@ -23,7 +20,7 @@ single_table_to_df <- function(z){
   } else { # For tables without a "loop_"
     z <- z[-1]
     df <- dplyr::tibble("data" = z)
-    df <- tidyr::separate(df, data, into = c("key", "value"), sep = "[:blank:]+")
+    df <- tidyr::separate(df, "data", into = c("key", "value"), sep = "[:blank:]+")
     df <- tidyr::spread(df, "key", "value")
   }
 
@@ -39,9 +36,6 @@ single_table_to_df <- function(z){
 #' @param path_to_star The path to the STAR file.
 #'
 #' @return A list of tibbles, one for each of the tables in the STAR file.
-#'
-#' @examples
-#' ringo::starr("./model.star")
 #'
 #' @export
 starr <- function(path_to_star){

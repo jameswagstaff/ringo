@@ -15,6 +15,3 @@ A tibble
 \description{
 Turns a single table (as a vector of lines) from the STAR file into a tibble.
 }
-\examples{
-single_table_to_df()
-}

@@ -16,7 +16,3 @@ A list of tibbles, one for each of the tables in the STAR file.
 The main function in the package, for reading in a STAR file and loading
 into memory as a list of tibbles.
 }
-\examples{
-ringo::starr("./model.star")
-
-}
