@@ -1,0 +1,16 @@
+Package: ringo
+Type: Package
+Title: Read STAR files into R
+Version: 0.1.0
+Author: James Wagstaff
+Maintainer: James Wagstaff <yourself@somewhere.net>
+Description: Read STAR files into R as data frames.
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    dplyr,
+    readr,
+    ggplot2
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.1.1
