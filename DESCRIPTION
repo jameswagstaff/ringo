@@ -11,6 +11,8 @@ LazyData: true
 Imports: 
     dplyr,
     readr,
-    ggplot2
+    tidyr,
+    stringr,
+    purrr
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.1
