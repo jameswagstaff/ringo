@@ -42,6 +42,7 @@ starr <- function(path_to_star){
   x <- readr::read_lines(path_to_star)
   x <- trimws(x, which = "both")
   x <- x[x != ""]
+  x <- x[!stringr::str_detect(x,"#")]
   x <- split(x, cumsum(grepl("data_", x)))
   y <- purrr::map(x, single_table_to_df)
   names(y) <- purrr::map(x, ~ .x[[1]])
