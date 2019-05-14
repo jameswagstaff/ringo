@@ -13,6 +13,7 @@ single_table_to_df <- function(z){
     names_cols <- z[grepl("^_",z)]
     first_data_row <- max(which(grepl("^_",z) == T))
     z <- z[-(1:first_data_row)]
+    if (length(z) == 1) {z <- paste0(z,"\n")} # read_delim treats as path if no newline
     df <- readr::read_delim(as.vector(z),
                             delim = " ",
                             trim_ws = T,
@@ -42,7 +43,7 @@ starr <- function(path_to_star){
   x <- readr::read_lines(path_to_star)
   x <- trimws(x, which = "both")
   x <- x[x != ""]
-  x <- x[!stringr::str_detect(x,"#")]
+  x <- x[!stringr::str_detect(x,"^#")]
   x <- split(x, cumsum(grepl("data_", x)))
   y <- purrr::map(x, single_table_to_df)
   names(y) <- purrr::map(x, ~ .x[[1]])
