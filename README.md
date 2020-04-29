@@ -7,7 +7,8 @@
 
 <!-- badges: end -->
 
-The goal of ringo is to parse STAR files like those produced by Relion.
+The goal of ringo is to manipulate STAR files like those produced by
+Relion.
 
 ## Installation
 

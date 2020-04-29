@@ -4,7 +4,7 @@
 \alias{single_table_to_df}
 \title{Single Table to Tibble}
 \usage{
-single_table_to_df(z)
+single_table_to_df(z, clean_relion_names = TRUE)
 }
 \arguments{
 \item{z}{A Vector of all the lines that make one STAR table}

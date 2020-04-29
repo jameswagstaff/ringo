@@ -4,13 +4,15 @@
 \alias{starr}
 \title{starr}
 \usage{
-starr(path_to_star)
+starr(path_to_star, clean_relion_names = TRUE)
 }
 \arguments{
 \item{path_to_star}{The path to the STAR file.}
 }
 \value{
-A list of tibbles, one for each of the tables in the STAR file.
+A tibble with two variables:
+table_name - a character vector of table names.
+table_tbl - a list of tibbles, one for each of the tables in the STAR file.
 }
 \description{
 The main function in the package, for reading in a STAR file and loading
