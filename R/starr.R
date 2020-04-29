@@ -60,7 +60,8 @@ starr <- function(path_to_star, clean_relion_names = TRUE){
     x <- unname(split(x, cumsum(grepl("data_", x))))
     x <- tibble::tibble("table_raw" = x)
     x <- dplyr::mutate(
-      x, "table_name" = as.vector(purrr::map(table_raw, ~ .x[[1]])) )
+      x, "table_name" = as.vector(purrr::map(table_raw, ~ .x[[1]]),
+                                  mode = "character") )
     x <- dplyr::mutate(
       x, "table_tbl" = purrr::map(
         table_raw, single_table_to_df, clean_relion_names = clean_relion_names))
